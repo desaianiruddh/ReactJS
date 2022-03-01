@@ -1,15 +1,12 @@
-import React from 'react'
-
-const compB = () => {
-    return (
-        <>
-            {/* <button onClick={() => setCounter(counter - 5)}> <small>-5</small></button>
-            <button onClick={() => setCounter(counter - 1)}> - </button>
-            <div className='counter-text'>{counter}</div>
-            <button onClick={() => setCounter(counter + 1)}> + </button>
-            <button onClick={() => setCounter(counter + 5)}> <small>+5</small></button> */}
-        </>
-    )
+import React,{ useContext } from 'react'
+import { ContextText } from './App'
+const CompB = () => {
+	const text =  useContext(ContextText);
+	return (
+		<>
+			<h1>Counter value from CompB: {text}</h1>
+		</>
+	)
 }
 
-export default compB;
+export default CompB;

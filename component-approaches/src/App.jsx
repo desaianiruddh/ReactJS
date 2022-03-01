@@ -1,9 +1,11 @@
 // eslint-disable-next-line
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef, createContext } from 'react';
 import './Css/App.css'
 import CardsData from './CardsData';
 import Card from './Card';
-
+import CompA from './CompA';
+//create context for useContext
+export const ContextText = createContext();
 // using functional component
 const App = () => {
   const [counter, setCounter] = useState(0);
@@ -27,6 +29,7 @@ const App = () => {
     console.log('callback run ' + counter);
     return counter;
   }, [counter])
+  
   //stle object
   const theme = {
     backgroundColor: dark ? 'rgba(65, 65, 65, 0.652)' : 'white',
@@ -35,7 +38,6 @@ const App = () => {
   return (
     <div className='App'>
       <div className='heading' style={theme}>
-        
         <button id='theme-btn' onClick={() => setDark(dark => !dark)}>
           {dark ? `Light` : `Dark`}
         </button>
@@ -58,6 +60,9 @@ const App = () => {
           })
         }
       </div>
+      <ContextText.Provider value={counter}>
+        <CompA />
+      </ContextText.Provider>
       <div className='footer' style={theme}>
         <button onClick={() => setCounter(counter - 5)}> <small>-5</small></button>
         <button onClick={() => setCounter(counter - 1)}> - </button>
