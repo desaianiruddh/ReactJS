@@ -1,7 +1,9 @@
 import React, { useReducer } from 'react'
+import useRenderCounter from './useRenderCounter';
 import '../Css/App.css'
 
 const UseReducer = () => {
+	console.log('component rendered');
 	//reducer function
 	const reducer = (state,action) =>{
 		console.log(state,action);
@@ -22,6 +24,8 @@ const UseReducer = () => {
 	//initialize useReduce hook
 	const initialState = 0;
 	const [state, dispatch] = useReducer(reducer,initialState)
+	//use custom hook
+	useRenderCounter(state);
 	return (
 		<>
 			<div className='footer'>
