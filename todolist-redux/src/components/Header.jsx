@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from 'react';
 
 class Header extends React.Component {
 	render() {
@@ -10,6 +9,7 @@ class Header extends React.Component {
 		const month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(dateObject);
 		const year = dateObject.getFullYear();
 		const day = dateObject.toLocaleString('en-us', { weekday: 'long' });
+		
 		return (
 			<>
 				<div className='date d-flex me-5'>

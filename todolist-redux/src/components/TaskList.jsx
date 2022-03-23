@@ -6,12 +6,13 @@ const TaskList = (props) => {
 	return (
 		<>
 			{
-				props.taskList.map((taskElement) => {
+				props.taskList.map((taskElement,index) => {
 					const {id, task, completed } = taskElement;
 					return (
 						<AddNewTask
 							key={id}
-							index={id}
+							id={id}
+							index={index}
 							taskName={task}
 							completed = {completed}
 						/>

@@ -7,20 +7,18 @@ export const addTask = (task) => {
       task: task,
       completed: false
     }
-  }
+  };
 }
 //when task has been completed
-export const completedTask = (id) => {
+export const updateTaskStatus = (id) => {
   return {
-    type: 'COMPLETED_TASK',
+    type: 'UPDATE_TASK_STATUS',
     id: id
-  }
+  };
 }
 //on new day all tasks will be erased
-export const clearAllTask = (date) => {
+export const clearAllTask = () => {
   return {
     type: 'CLEAR_ALL_TASK',
-    taskDate: date,
-    currentDate: new Date().getDate()
-  }
+  };
 }
